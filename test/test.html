@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur de texte - Mode sombre</title>
+    <style>
+        /* Corps de la page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container pour l'éditeur de texte */
+        .editor-container {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            height: 80vh;
+            overflow: hidden;
+        }
+
+        /* Zone de texte */
+        .editor {
+            background-color: #121212;
+            color: #e0e0e0;
+            border: none;
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            font-size: 18px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+            overflow-y: auto;
+        }
+
+        /* Style des boutons */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .controls button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .controls button:hover {
+            background-color: #444;
+        }
+
+        .controls button:active {
+            background-color: #555;
+        }
+
+        /* Ajouter un focus sur les boutons */
+        .controls button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(126, 126, 126, 0.3);
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="editor-container">
+        <div class="controls">
+            <button onclick="document.execCommand('bold')">Gras</button>
+            <button onclick="document.execCommand('italic')">Italique</button>
+            <button onclick="document.execCommand('underline')">Souligné</button>
+            <button onclick="document.execCommand('justifyLeft')">Aligner à gauche</button>
+            <button onclick="document.execCommand('justifyCenter')">Centrer</button>
+            <button onclick="document.execCommand('justifyRight')">Aligner à droite</button>
+        </div>
+        <div 
+            contenteditable="true" 
+            class="editor"
+            id="editor"
+            role="textbox" 
+            placeholder="Commencez à écrire ici...">
+        </div>
+    </div>
+
+</body>
+</html>

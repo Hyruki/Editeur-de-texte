@@ -1,0 +1,120 @@
+body{
+    color: white;
+    background-color: #0f0f0f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+
+    display:grid
+}
+
+
+/* Barre horizontal en haut */
+.up_line{
+    align-items: center;
+    display: flex;
+    justify-content: space-between; /* Sépare les groupes */
+    background-color: rgb(56, 105, 134);
+    border-radius: 10px;
+}
+
+
+/* Partie gauche de la Barre horizontal en haut */
+.left-up{
+    display: flex;
+    gap: 10px;
+}
+
+
+/* Partie centre de la Barre horizontal en haut */
+.button-zone{
+    display: flex;
+    margin: 0 auto; /* Centre les boutons */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centre parfaitement */
+}
+
+
+/* Desing du modal */
+.modal{
+    display: grid;
+    justify-items: center;
+    background-color: rgb(80, 80, 80);
+    border-color: white;
+    color: white;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+/* Desong du modal de paramètre */
+.modal-parametre{
+    justify-items: left;
+    background-color: rgb(80, 80, 80);
+    border-color: white;
+    color: white;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+
+/* Réglage de but : Le bug était que la zone était invisible pour l'être humain mais présent pour la machine. Nous pouvions
+cliquer sur le modal comme si il était affiché */
+dialog:not([open]){
+    display: none;
+}
+
+/* Desing des boutons et input présent dans le .modal */
+.modal input, .modal button{
+    background-color: rgb(34, 34, 34);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+}
+
+/* Alignement au centre du contenu de base*/
+.content{
+    justify-items: center;
+}
+
+/* Desing de la zone de texte */
+.text-editor{
+    width: 800px;
+    height: 600px;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    background-color: rgb(48, 48, 48);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    
+}
+
+/* Desing des boutons et des selecteurs (dropdown) */
+.button, .dropdown ,.button-color-change{
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center;
+    height: 40px; 
+    padding: 5px 10px; 
+    vertical-align: middle; 
+    margin: 10px; 
+    color: rgb(219, 219, 219);
+    background-color: #222222;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Animation de passage avec la sourie */
+.button:hover, .dropdown:hover{
+    background-color: rgb(70, 70, 70);
+}
+
+/* Animation de click avec la souris */
+.button:active, .dropdown:active{
+    background-color: rgb(110, 110, 110);
+}
+

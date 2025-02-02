@@ -1,0 +1,47 @@
+body {
+    background-color: #f3f3f3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.editor-container {
+    width: 800px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.toolbar {
+    display: flex;
+    background: #00bcd4;
+    padding: 10px;
+    gap: 5px;
+    justify-content: center;
+}
+
+.toolbar button, .toolbar select {
+    background: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.toolbar button:hover, .toolbar select:hover {
+    background: #e0f7fa;
+}
+
+#editor {
+    min-height: 400px;
+    padding: 15px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+}

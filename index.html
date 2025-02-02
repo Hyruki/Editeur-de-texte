@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="js/bouton_barre.js"></script>
+    <script src="js/traitement_texte.js"></script>
+    <script src="js/desing.js"></script>
+    <title>Editeur de Texte</title>
+</head>
+<body onload="cookie_management()">
+
+    <!-- Zone de barre du haut-->
+    <div class="up_line" id="up_line">
+
+        <!-- Partie Gauche -->
+        <div class="left-up">
+
+            <!-- Bouton de Téléchargement -->
+            <button class="button" onclick="open_modal_download()">
+                <span class="material-symbols-outlined">
+                    download
+                    </span>
+            </button>
+
+            <!-- Bouton d'Upload -->
+            <button class="button" onclick="open_modal_open()">
+                <span class="material-symbols-outlined">
+                    upload_file
+                    </span>
+            </button>
+        </div>
+
+        <!-- Partie Centre -->
+        <div class="button-zone">
+
+            <!-- Bouton Gras -->
+            <button type="button" class="button" onclick="gras()">
+                <span class="material-symbols-outlined">
+                    format_bold
+                    </span>
+            </button>
+
+            <!-- Bouton Italique -->
+            <button type="button" class="button" onclick="italique()">
+                <span class="material-symbols-outlined">
+                    format_italic
+                </span>
+            </button>
+
+            <!-- Bouton Soulignage -->
+            <button type="button" class="button" onclick="souligne()">
+                <span class="material-symbols-outlined">
+                    format_underlined
+                    </span>
+            </button>
+
+            <!-- Bouton Alignage à Gauche -->
+            <button type="button" class="button" onclick="alignerGauche()">
+                <span class="material-symbols-outlined">
+                    format_align_left
+                    </span>
+            </button>
+
+            <!-- Bouton Alignage au centre -->
+            <button type="button" class="button" value="CENTRE" onclick="alignerCentre()">
+                <span class="material-symbols-outlined">
+                    format_align_center
+                    </span>
+            </button>
+
+            <!-- Bouton Alignage à droite -->
+            <button type="button" class="button" value="RIGHT" onclick="alignerDroite()">
+                <span class="material-symbols-outlined">
+                    format_align_right
+                    </span>
+            </button>
+
+            <!-- Bouton de sélection de taille de police en pixel -->
+            <select name="taille" id="taille" class="dropdown" onchange="changertaille()"></select>
+        </div>
+        
+        <!-- Partie Droite -->
+        <div class="right-up">
+            <button id="color_mode" class="button" onclick="color_change()">
+                <span id="color_mode_span" class="material-symbols-outlined">
+                    dark_mode
+                </span>
+            </button>
+            <button class="button" onclick="open_modal_parametre()">
+                <span class="material-symbols-outlined">
+                    settings
+                </span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Pop up de la sauvegarde -->
+    <dialog id="filename" class="modal">
+        <h1>Donnez un nom à votre fichier</h1>
+        <input type="text" id="filename-input">
+        <button class="button" onclick="download()">Enregistrer</button>
+        <button class="button" onclick="close_modal_download()">Annuler</button>
+    </dialog>
+
+    <!-- Pop up de l'upload -->
+    <dialog id="uploadfile" class="modal">
+        <h1>Importez votre fichier .txt</h1>
+        <input type="file" id="upload_file" class="button" value="Envoyer" onchange="open_file()">
+        <button class="button" onclick="close_modal_open()">Annuler</button>
+    </dialog>
+
+    <!-- Pop up des paramètres -->
+    <dialog id="parametre" class="modal-parametre">
+        <h1>Paramètre</h1>
+        <h4>
+            Couleur de la barre horizontale du haut : 
+            <button class="button-color-change" id="red-color" style="background-color: #a52a2a; height: 20px;" onclick="red_change()"></button>
+            <button class="button-color-change" id="blue-color" style="background-color: #386986; height: 20px;" onclick="blue_change()"></button>
+            <button class="button-color-change" id="green-color" style="background-color: #38865f; height: 20px;" onclick="green_change()"></button>
+            <button class="button-color-change" id="green-color" style="background-color: #5a3886; height: 20px;" onclick="green_change()"></button>
+        </h4>
+        <button class="button" onclick="close_modal_parametre()">Quitter</button>
+    </dialog>
+
+    <h1 class="title">Editeur de Texte</h1>
+
+    <!-- Zone de contenue du coeur de l'étditeur de texte -->
+    <div class="content">
+        
+        <!-- Zone d'écriture -->
+        <div class="text-editor" id="text-editor" contenteditable="true"></div>
+        
+        <!-- Script pour ajouter 40 tailles de police en partant de 1 -->
+        <script>
+            // Ajout des 40 tailles disponible en px
+            let selector = document.getElementById("taille");
+
+            for (let i = 1; i <=40; i++) {
+                let option = document.createElement("option");
+                
+                if(i==20){
+                    option.selected = true
+                }
+
+                option.value = i;
+                option.textContent = i;
+            
+                selector.appendChild(option);
+
+            }
+        </script>
+        <!--
+        <input type="text" id="bs64_encode" contenteditable="false">
+        <button id="bd64_encode_btn" onclick="encode()">encode</button>
+        <input type="text" id="bs64_decode" placeholder="bs64_encodé">
+        <button id="bd64_decode_btn" onclick="decode()">Decoder</button>
+        -->
+    </div>
+</body>
+</html>
