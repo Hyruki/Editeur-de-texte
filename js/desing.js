@@ -21,8 +21,8 @@ function green_change(){
 
 }
 
-// Changement de couleur VIOLLET
-function green_change(){
+// Changement de couleur VIOLET
+function violet_change(){
     document.getElementById("up_line").style.backgroundColor = "#5a3886"
     localStorage.setItem("head_color", "#5a3886")
 
